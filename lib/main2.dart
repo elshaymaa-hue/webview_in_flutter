@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'OfferDataModel1.dart';
+import 'ProductDataModel.dart';
 import 'package:flutter/services.dart' as rootBundle;
-import 'dart:async';
-import 'dart:convert';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (data.hasError) {
               return Center(child: Text("${data.error}"));
             } else if (data.hasData) {
-              var items = data.data as List<OfferDataModel1>;
+              var items = data.data as List<ProductDataModel>;
               return ListView.builder(
                   itemCount: items == null ? 0 : items.length,
                   itemBuilder: (context, index) {
@@ -55,14 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             Container(
                               width: 50,
                               height: 50,
-                              child:
-                              Image(
+                              child: Image(
                                 image:
-                                new AssetImage(items[index].photo.toString()),
-                                height: 100.0,
-                                width: 100.0,
-                              )
-
+                                NetworkImage(items[index].imageURL.toString()),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                             Expanded(
                                 child: Container(
@@ -74,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Padding(
                                         padding: EdgeInsets.only(left: 8, right: 8),
                                         child: Text(
-                                          items[index].directory.toString(),
+                                          items[index].name.toString(),
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold),
@@ -82,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(left: 8, right: 8),
-                                        child: Text(items[index].id.toString()),
+                                        child: Text(items[index].price.toString()),
                                       )
                                     ],
                                   ),
@@ -102,9 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future<List<OfferDataModel1>> ReadJsonData() async {
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/offers1.json');
+  Future<List<ProductDataModel>> ReadJsonData() async {
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/productlist.json');
     final list = json.decode(jsondata) as List<dynamic>;
-    return list.map((e) => OfferDataModel1.fromJson(e)).toList();
+    return list.map((e) => ProductDataModel.fromJson(e)).toList();
   }
 }
