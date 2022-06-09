@@ -1,7 +1,44 @@
 [
     {
         "id": 1,
-        "photo": "81S-ekaE+vS._AC_UL320_.jpg",
-        "directory": "radars"
+        "photo": "https://flexible-eg.com/assets/img/portfolio/cabin.png",
+        "directory": "portfolio",
+        "test": "radars",
+        "url": "https://flexible-eg.com/ar/radars/all"
+    },
+    {
+        "id": 2,
+        "photo": "https://flexible-eg.com/assets/img/portfolio/cake.png",
+        "directory": "portfolio",
+        "test": "power stations",
+        "url": "https://flexible-eg.com/ar/power_stations/all"
+    },
+    {
+        "id": 3,
+        "photo": "https://flexible-eg.com/assets/img/portfolio/circus.png",
+        "directory": "portfolio",
+        "test": "document",
+        "url": "https://flexible-eg.com/report"
+    },
+    {
+        "id": 4,
+        "photo": "https://flexible-eg.com/assets/img/portfolio/game.png",
+        "directory": "portfolio",
+        "test": "software",
+        "url": "https://flexible-eg.com/ar/offers/filter?search_=Electorinc%20Archive"
+    },
+    {
+        "id": 5,
+        "photo": "https://flexible-eg.com/assets/img/portfolio/safe.png",
+        "directory": "portfolio",
+        "test": "maintenance",
+        "url": "https://flexible-eg.com/offers/filter?search_=Maintenance"
+    },
+    {
+        "id": 6,
+        "photo": "https://flexible-eg.com/assets/img/portfolio/submarine.png",
+        "directory": "portfolio",
+        "test": "technical_office",
+        "url": "https://flexible-eg.com/ar/offers/filter?search_=technical_office"
     }
 ]

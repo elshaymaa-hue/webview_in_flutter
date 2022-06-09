@@ -35,7 +35,7 @@ class _WebViewAppState extends State<WebViewApp> {
         title: const Text('Flutter WebView'),
       ),
       body: const WebView(
-        initialUrl: 'https://flutter.dev',
+        initialUrl: 'https://flexible-eg.com/report',
       ),
     );
   }

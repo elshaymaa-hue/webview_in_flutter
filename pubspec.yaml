@@ -37,6 +37,11 @@ dependencies:
   webview_flutter: ^3.0.2
   english_words: ^4.0.0
   google_fonts: ^3.0.1
+  url_launcher: ^6.1.2
+  flutter_bloc: ^8.0.1
+  go_router: ^3.0.1
+  adaptive_components: ^0.0.3
+  freezed_annotation: ^2.0.3
 
 dev_dependencies:
   flutter_test:

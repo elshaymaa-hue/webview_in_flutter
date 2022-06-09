@@ -4,6 +4,9 @@ class OfferDataModel1
 int? id ;
 String? photo;
 String? directory;
+String? test;
+String? url;
+
 
 
 // constructor
@@ -12,6 +15,8 @@ String? directory;
         this.id ,
         this.photo,
         this.directory,
+        this.test,
+        this.url,
       }
       );
 
@@ -21,5 +26,7 @@ String? directory;
     id = json['id'];
     photo =json['photo'];
     directory =json['directory'];
+    test =json['test'];
+    url =json['url'];
   }
 }

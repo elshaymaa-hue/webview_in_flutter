@@ -1,9 +1,12 @@
 import 'dart:convert';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'OfferDataModel1.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'dart:async';
+
+
 
 void main() {
   runApp(MyApp());
@@ -55,37 +58,35 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: 50,
                             height: 50,
                             child: Image(
-                              image: AssetImage(items[index].photo.toString()),
-                              height: 100.0,
-                              width: 100.0,
-                            )),
+                              image:
+                              NetworkImage(items[index].photo.toString()),
+                              fit: BoxFit.fill,
+                            )
+
+                        ),
                         Expanded(
-                            child: Container(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 8, right: 8),
-                                child: Text(
-                                  items[index].directory.toString(),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                          child: Container(
+                            child: RaisedButton(
+                              child: Text(
+                                items[index].test.toString(),
+                                style: TextStyle(fontSize: 20),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 8, right: 8),
-                                child: Text(items[index].id.toString()),
-                              )
-                            ],
+                              color: Colors.green,
+                              textColor: Colors.white,
+                              onPressed: () {
+                                print(items[index].url.toString());
+                              },
+                            ),
                           ),
-                        ))
+                            ),
                       ],
-                    ),
-                  ),
+                          )
+
+                        )
+
                 );
+
+
               });
         } else {
           return Center(
