@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'OfferDataModel1.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'dart:async';
-import '../../src/shared/views/views.dart';
+// import '../../src/shared/views/views.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
