@@ -1,63 +1,59 @@
+import 'dart:convert';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'OfferDataModel1.dart';
+import 'package:flutter/services.dart' as rootBundle;
+import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-void main() => runApp(const MyApp());
+final PdfViewerController _pdfViewerController=PdfViewerController();
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp();
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // #docregion titleSection
-    Widget titleSection = Container(
-      padding: const EdgeInsets.all(32),
-      child: Row(
-        children: [
-          Expanded(
-            /*1*/
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /*2*/
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: const Text(
-                    'Oeschinen Lake Campground',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Text(
-                  'Kandersteg, Switzerland',
-                  style: TextStyle(
-                    color: Colors.grey[500],
-                  ),
-                ),
-              ],
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Syncfusion Flutter PDF Viewer'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.arrow_drop_down_circle,
+              color: Colors.white,
             ),
+            onPressed: () {
+              _pdfViewerController.jumpToPage(3);
+              print(_pdfViewerController.scrollOffset.dy);
+              print(_pdfViewerController.scrollOffset.dx);
+            },
           ),
-          /*3*/
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          const Text('41'),
         ],
       ),
-    );
-    // #enddocregion titleSection
-
-    return MaterialApp(
-      title: 'Flutter layout demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter layout demo'),
-        ),
-        body: Column(
-          children: [
-            titleSection,
-          ],
-        ),
+      body: SfPdfViewer.network(
+        'https://cmms-site.com/quran/fathah.pdf',
+        controller: _pdfViewerController,
       ),
     );
   }
